@@ -1,0 +1,10 @@
+{
+  "fins_step": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "aquatica:fins_step"
+      }
+    ]
+  }
+}

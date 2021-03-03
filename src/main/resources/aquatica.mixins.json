@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "draylar.aquatica.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ChunkGeneratorSettingsAccessor",
+    "EntityMixin",
+    "FishingBobberEntityMixin",
+    "LivingEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

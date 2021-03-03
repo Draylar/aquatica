@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "aquatica",
+  "version": "${version}",
+  "name": "Aquatica",
+  "description": "desc",
+  "authors": [
+    "Draylar"
+  ],
+  "license": "MIT",
+  "icon": "assets/aquatica/icon.png",
+  "environment": "*",
+  "accessWidener": "aquatica.accesswidener",
+  "entrypoints": {
+    "main": [
+      "draylar.aquatica.Aquatica"
+    ],
+    "client": [
+      "draylar.aquatica.AquaticaClient"
+    ]
+  },
+  "mixins": [
+    "aquatica.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*"
+  }
+}

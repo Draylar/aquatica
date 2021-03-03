@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "aquatica:block/beach_chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "aquatica:block/beach_chair"
+    },
+    "facing=south": {
+      "model": "aquatica:block/beach_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "aquatica:block/beach_chair",
+      "y": 270
+    }
+  }
+}

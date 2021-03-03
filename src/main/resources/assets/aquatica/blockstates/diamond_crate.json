@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": [
+      { "model": "aquatica:block/diamond_crate" }
+    ]
+  }
+}

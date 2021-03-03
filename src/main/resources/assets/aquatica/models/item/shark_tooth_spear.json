@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "aquatica:item/shark_tooth_spear"
+  }
+}
