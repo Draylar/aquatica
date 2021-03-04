@@ -40,8 +40,9 @@ public abstract class LivingEntityMixin extends Entity {
 
     @ModifyVariable(at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/entity/LivingEntity;updateVelocity(FLnet/minecraft/util/math/Vec3d;)V"
-    ), method = "travel", name = "g")
+            target = "Lnet/minecraft/entity/LivingEntity;updateVelocity(FLnet/minecraft/util/math/Vec3d;)V",
+            ordinal = 0
+    ), method = "travel", index = 9)
     private float changeSpeedModifier(float g) {
         LivingEntity livingEntity = (LivingEntity) (Object) this;
         ItemStack boots = livingEntity.getEquippedStack(EquipmentSlot.FEET);
