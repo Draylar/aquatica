@@ -6,6 +6,7 @@
     "ChunkGeneratorSettingsAccessor",
     "EntityMixin",
     "FishingBobberEntityMixin",
+    "GeneratorOptionsMixin",
     "LivingEntityMixin"
   ],
   "client": [

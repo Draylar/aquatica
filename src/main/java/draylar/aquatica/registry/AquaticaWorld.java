@@ -1,11 +1,11 @@
 package draylar.aquatica.registry;
 
 import draylar.aquatica.Aquatica;
-import draylar.aquatica.client.IslandGeneratorType;
+import draylar.aquatica.mixin.ChunkGeneratorSettingsAccessor;
 import draylar.aquatica.world.AquaticaBiomeSource;
 import draylar.aquatica.world.config.PalmTreeFeatureConfig;
-import draylar.aquatica.world.features.PalmTreeFeature;
 import draylar.aquatica.world.features.BeachRockFeature;
+import draylar.aquatica.world.features.PalmTreeFeature;
 import draylar.aquatica.world.sb.RockyShoreSurfaceBuilder;
 import draylar.aquatica.world.ternary.RockyShoreTernarySurfaceConfig;
 import net.minecraft.block.Blocks;
@@ -13,16 +13,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.source.TheEndBiomeSource;
-import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
-import net.minecraft.world.gen.chunk.StructuresConfig;
+import net.minecraft.world.gen.chunk.*;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.surfacebuilder.NetherSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 public class AquaticaWorld {
 
@@ -44,7 +40,7 @@ public class AquaticaWorld {
     }
 
     public static void init() {
-        register(AQUATICA, IslandGeneratorType.createAquaticaType(new StructuresConfig(false), false, AQUATICA.getValue()));
+        register(AQUATICA, createAquaticaType(new StructuresConfig(false), false, AQUATICA.getValue()));
         Registry.register(Registry.BIOME_SOURCE, Aquatica.id("aquatica"), AquaticaBiomeSource.CODEC);
     }
 
@@ -59,5 +55,35 @@ public class AquaticaWorld {
 
     private static <C extends SurfaceConfig, F extends SurfaceBuilder<C>> F register(String id, F surfaceBuilder) {
         return Registry.register(Registry.SURFACE_BUILDER, Aquatica.id(id), surfaceBuilder);
+    }
+
+    public static ChunkGeneratorSettings createAquaticaType(StructuresConfig config, boolean bl, Identifier id) {
+        double scale = 0.9999999814507745D;
+
+        return ChunkGeneratorSettingsAccessor.createChunkGeneratorSettings(
+                config,
+                new GenerationShapeConfig(
+                        256,
+                        new NoiseSamplingConfig(
+                                scale,
+                                scale,
+                                80.0D,
+                                160.0D),
+                        new SlideConfig(-10, 3, 0),
+                        new SlideConfig(-30, 0, 0),
+                        1,
+                        2,
+                        1.0D,
+                        -0.46875D,
+                        true,
+                        true,
+                        false,
+                        bl),
+                Blocks.STONE.getDefaultState(),
+                Blocks.WATER.getDefaultState(),
+                -10,
+                0,
+                150,
+                false);
     }
 }

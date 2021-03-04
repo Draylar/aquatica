@@ -7,11 +7,11 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 import net.minecraft.world.gen.chunk.StructuresConfig;
 
-public class IslandChunkGenerator extends NoiseChunkGenerator {
+public class AquaticaChunkGenerator extends NoiseChunkGenerator {
 
     private final StructuresConfig generatorConfig;
 
-    public IslandChunkGenerator(Registry<Biome> biomeRegistry, long seed, StructuresConfig config) { // IslandGeneratorType.createAquaticaType(config, false, ChunkGeneratorType.Preset.AMPLIFIED)
+    public AquaticaChunkGenerator(Registry<Biome> biomeRegistry, long seed, StructuresConfig config) { // IslandGeneratorType.createAquaticaType(config, false, ChunkGeneratorType.Preset.AMPLIFIED)
         super(new AquaticaBiomeSource(biomeRegistry, seed), seed, () -> {
             return BuiltinRegistries.CHUNK_GENERATOR_SETTINGS.getOrThrow(AquaticaWorld.AQUATICA);
         });
