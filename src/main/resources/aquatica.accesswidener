@@ -4,3 +4,4 @@ accessible method net/minecraft/world/gen/chunk/ChunkGeneratorType <init> (Lnet/
 extendable class net/minecraft/world/gen/chunk/SurfaceChunkGenerator
 extendable class net/minecraft/world/gen/chunk/NoiseChunkGenerator
 accessible method net/minecraft/client/world/GeneratorType <init> (Ljava/lang/String;)V
+accessible  method  net/minecraft/world/gen/chunk/ChunkGeneratorSettings    <init>  (Lnet/minecraft/world/gen/chunk/StructuresConfig;Lnet/minecraft/world/gen/chunk/GenerationShapeConfig;Lnet/minecraft/block/BlockState;Lnet/minecraft/block/BlockState;IIIZ)V

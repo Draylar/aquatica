@@ -1,7 +1,6 @@
 package draylar.aquatica.registry;
 
 import draylar.aquatica.Aquatica;
-import draylar.aquatica.mixin.ChunkGeneratorSettingsAccessor;
 import draylar.aquatica.world.AquaticaBiomeSource;
 import draylar.aquatica.world.config.PalmTreeFeatureConfig;
 import draylar.aquatica.world.features.BeachRockFeature;
@@ -60,7 +59,7 @@ public class AquaticaWorld {
     public static ChunkGeneratorSettings createAquaticaType(StructuresConfig config, boolean bl, Identifier id) {
         double scale = 0.9999999814507745D;
 
-        return ChunkGeneratorSettingsAccessor.createChunkGeneratorSettings(
+        return new ChunkGeneratorSettings(
                 config,
                 new GenerationShapeConfig(
                         256,

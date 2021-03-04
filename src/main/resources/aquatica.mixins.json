@@ -3,7 +3,6 @@
   "package": "draylar.aquatica.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ChunkGeneratorSettingsAccessor",
     "EntityMixin",
     "FishingBobberEntityMixin",
     "GeneratorOptionsMixin",
