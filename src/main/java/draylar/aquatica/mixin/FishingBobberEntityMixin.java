@@ -25,45 +25,8 @@ import java.util.Optional;
 @Mixin(FishingBobberEntity.class)
 public abstract class FishingBobberEntityMixin extends Entity {
 
-    @Unique
-    private ItemStack stack = ItemStack.EMPTY;
-
     private FishingBobberEntityMixin(EntityType<?> type, World world) {
         super(type, world);
-    }
-
-    @Inject(
-            method = "use",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/ItemEntity;<init>(Lnet/minecraft/world/World;DDDLnet/minecraft/item/ItemStack;)V"
-            )
-    )
-    private void preConstruct(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
-        this.stack = stack;
-    }
-
-    @ModifyVariable(
-            method = "use",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/ItemEntity;setVelocity(DDD)V",
-                    shift = At.Shift.AFTER
-            ),
-            name = "itemEntity"
-    )
-    private ItemEntity test(ItemEntity itemEntity) {
-        if(EnchantmentHelper.getLevel(Enchantments.DEEPFRY, stack) != 0) {
-            Optional<SmeltingRecipe> cooked = world.getRecipeManager().getFirstMatch(
-                    RecipeType.SMELTING,
-                    new SimpleInventory(itemEntity.getStack()),
-                    world
-            );
-
-            cooked.ifPresent(smeltingRecipe -> itemEntity.setStack(smeltingRecipe.getOutput()));
-        }
-
-        return itemEntity;
     }
 
     /**
